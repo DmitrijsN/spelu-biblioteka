@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <title>Spēļu bibliotēka</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Spēļu bibliotēka</h1>
+
+        <nav>
+            <a href="/">Sākumlapa</a>
+            <a href="/pievienot">Pievienot spēli</a>
+        </nav>
+
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Nosaukums</th>
+                <th>Žanrs</th>
+                <th>Vērtējums</th>
+                <th>Status</th>
+                <th>Darbība</th>
+            </tr>
+
+            {% for game in games %}
+            <tr>
+                <td>{{ game[0] }}</td>
+                <td>{{ game[1] }}</td>
+                <td>{{ game[2] }}</td>
+                <td>{{ game[3] }}/10</td>
+                <td>{{ game[4] }}</td>
+                <td>
+                    <a class="delete-btn" href="/dzest/{{ game[0] }}">Dzēst</a>
+                </td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+
+</body>
+</html>

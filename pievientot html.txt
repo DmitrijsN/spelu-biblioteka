@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <title>Pievienot spēli</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Pievienot jaunu spēli</h1>
+
+        <nav>
+            <a href="/">Sākumlapa</a>
+            <a href="/pievienot">Pievienot spēli</a>
+        </nav>
+
+        <form method="POST">
+
+            <label>Spēles nosaukums:</label>
+            <input type="text" name="nosaukums" required>
+
+            <label>Žanrs:</label>
+            <input type="text" name="zanrs" required>
+
+            <label>Vērtējums (1-10):</label>
+            <input type="number" name="vertejums" min="1" max="10" required>
+
+            <label>Status:</label>
+            <select name="status">
+                <option>Spēlēju</option>
+                <option>Pabeigta</option>
+                <option>Vēlos spēlēt</option>
+            </select>
+
+            <button type="submit">Pievienot</button>
+
+        </form>
+    </div>
+
+</body>
+</html>
